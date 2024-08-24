@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(31, 31, 31);
+    color: aqua;
+}
+
+#book-container {
+    width: 50vw;
+    height: 100vh;
+    display: grid;
+    grid-template: repeat(2, min-content) / repeat(2, min-content);
+    border: 1px solid red;
+    gap: 10px;
+    justify-content: center;
+}
+
+.card {
+    width: 25rem;
+    height: 13rem;
+    background-color: rgb(161, 91, 207);
+}
+
+h1 {
+    grid-column: span 2;
+    justify-self: center;
+}
+
+span {
+    font-weight: 600;
+}

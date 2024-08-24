@@ -17,6 +17,4 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
 }
 
-addBookToLibrary();
-
 console.log(myLibrary);

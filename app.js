@@ -1,8 +1,11 @@
 const myLibrary = [];
 
-///////////////////////////////
-///// Book constructor/////////
-///////////////////////////////
+function Book(title, author, pages, hasRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.hasRead = hasRead;
+}
 
 function addBookToLibrary() {
     const title = prompt("What's the name of the book?");
@@ -10,6 +13,10 @@ function addBookToLibrary() {
     const pages = prompt("How many pages is it?");
     const hasRead = prompt("Have you read it?");
 
-    //create object here
-    //push to library
+    const newBook = new Book(title, author, pages, hasRead);
+    myLibrary.push(newBook);
 }
+
+addBookToLibrary();
+
+console.log(myLibrary);

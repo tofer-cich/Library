@@ -8,9 +8,10 @@ body {
 
 #book-container {
     width: 50vw;
-    height: 100vh;
+    height: min-content;
     display: grid;
-    grid-template: repeat(2, min-content) / repeat(2, min-content);
+    grid-template-columns: repeat(2, min-content);
+    grid-auto-rows: min-content;
     border: 1px solid red;
     gap: 10px;
     justify-content: center;
@@ -25,8 +26,16 @@ body {
 h1 {
     grid-column: span 2;
     justify-self: center;
+    position: sticky;
+    top: 0;
 }
 
 span {
     font-weight: 600;
+}
+
+input {
+    position: sticky;
+    height: min-content;
+    top: 0;
 }

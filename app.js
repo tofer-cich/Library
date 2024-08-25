@@ -1,5 +1,7 @@
 const myLibrary = [];
 
+const newBookButton = document.querySelector('input');
+
 function Book(title, author, pages, hasRead) {
     this.title = title;
     this.author = author;
@@ -31,6 +33,7 @@ function createCard(title, author, pages, hasRead) {
     cardTitle.appendChild(cardTitleHead);
     cardTitle.appendChild(document.createTextNode(title));
 
+    //author
     const cardAuthor = document.createElement('p');
     const cardAuthorHead = document.createElement('span');
     cardAuthorHead.textContent = "Author: ";
@@ -56,9 +59,12 @@ function createCard(title, author, pages, hasRead) {
     card.appendChild(cardPages);
     card.appendChild(cardHasRead);
 
+    card.dataset.indexNumber = myLibrary.length;
+    console.log(card.dataset.indexNumber);
+
     return card;
 }
 
-addBookToLibrary();
-
-console.log(myLibrary);
+newBookButton.addEventListener("click", () => {
+    addBookToLibrary();
+});

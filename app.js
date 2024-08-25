@@ -1,6 +1,6 @@
 const myLibrary = [];
 
-const newBookButton = document.querySelector('input');
+const newBookButton = document.querySelector('body > input');
 
 function Book(title, author, pages, hasRead) {
     this.title = title;
@@ -10,6 +10,22 @@ function Book(title, author, pages, hasRead) {
 }
 
 const bookContainer = document.querySelector("#book-container");
+
+bookContainer.addEventListener("click", (e) => {
+    let target = e.target;
+
+    switch (target.value) {
+        case "Remove":
+            removeBookFromLibrary();
+            break;
+        case "Read Status":
+            console.log("You clicked the read status button");
+            break;
+        default:
+            console.log("Unfamiliar button pressed");
+    }
+    
+});
 
 function addBookToLibrary() {
     const title = prompt("What's the name of the book?");
@@ -22,7 +38,11 @@ function addBookToLibrary() {
     bookContainer.appendChild(createCard(title, author, pages, hasRead));
 }
 
-function createCard(title, author, pages, hasRead) {
+function removeBookFromLibrary() {
+    console.log("removeBookFromLibrary");
+}
+
+function createCard(title, author, pages, hasRead) {    
     const card = document.createElement('div');
     card.classList.add('card');
 
@@ -54,10 +74,16 @@ function createCard(title, author, pages, hasRead) {
     cardHasRead.appendChild(cardHasReadTitle);
     cardHasRead.appendChild(document.createTextNode(hasRead));
 
+    //delete button
+    const deleteButton = document.createElement('input');
+    deleteButton.type = "button";
+    deleteButton.value = "Remove";
+
     card.appendChild(cardTitle);
     card.appendChild(cardAuthor);
     card.appendChild(cardPages);
     card.appendChild(cardHasRead);
+    card.appendChild(deleteButton);
 
     card.dataset.indexNumber = myLibrary.length;
     console.log(card.dataset.indexNumber);

@@ -34,8 +34,16 @@ span {
     font-weight: 600;
 }
 
-input {
+body > input {
     position: sticky;
     height: min-content;
     top: 0;
+}
+
+.card input {
+    height: min-content;
+    width: min-content;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
 }

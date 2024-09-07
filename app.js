@@ -2,17 +2,20 @@ const myLibrary = [];
 
 const newBookButton = document.querySelector('body > input');
 
-function Book(title, author, pages, hasRead) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.hasRead = hasRead;
-}
-Book.prototype.changeReadStatus = function(target) {
-    if (this.hasRead === "no") {
-        this.hasRead = "yes";
-    } else {
-        this.hasRead = "no";
+class Book {
+    constructor(title, author, pages, hasRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.hasRead = hasRead;
+    }
+
+    changeReadStatus() {
+        if (this.hasRead === "no") {
+            this.hasRead = "yes";
+        } else {
+            this.hasRead = "no";
+        }
     }
 }
 
@@ -34,7 +37,7 @@ bookContainer.addEventListener("click", (e) => {
             console.log("Unfamiliar button pressed");
             console.log(myLibrary);
     }
-    
+
 });
 
 let count = 1;
@@ -65,7 +68,7 @@ function removeBookFromLibrary(target) {
     target.remove();
 }
 
-function createCard(title, author, pages, hasRead, id, book) {    
+function createCard(title, author, pages, hasRead, id, book) {
     const card = document.createElement('div');
     card.classList.add('card');
 
@@ -133,5 +136,4 @@ function changeReadStatus(target) {
     }
 
     target.objectData.changeReadStatus();
-    
 }
